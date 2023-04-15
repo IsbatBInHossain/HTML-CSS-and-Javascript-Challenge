@@ -25,7 +25,7 @@ body {
 }
 .key {
   width: 120px;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;

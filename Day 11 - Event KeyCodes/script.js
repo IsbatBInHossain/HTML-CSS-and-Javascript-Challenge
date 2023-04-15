@@ -1,17 +1,24 @@
-const key = document.querySelector('.key');
-const keyCode = document.querySelector('.keyCode');
-const code = document.querySelector('.code');
 const initial = document.getElementById('initial');
-const boxes = document.querySelectorAll('.key');
+const insert = document.querySelector('.container');
 
 document.body.addEventListener('keydown', e => handleKeyPress(e));
 
-function handleKeyPress(e) {
+function handleKeyPress(event) {
   if (initial.style.display !== 'none') {
-    boxes.forEach(box => (box.style.display = 'flex'));
     initial.style.display = 'none';
   }
-  key.innerHTML = `${e.key} <small>event.key</small>`;
-  keyCode.innerHTML = `${e.keyCode} <small>event.keyCode</small>`;
-  code.innerHTML = `${e.code} <small>event.code</small>`;
+  insert.innerHTML = `
+        <div class="key">
+          ${event.key === ' ' ? 'Space' : event.key}
+          <small>event.key</small>
+        </div>
+        <div class="key">
+          ${event.keyCode}
+          <small>event.keyCode</small>
+        </div>
+        <div class="key">
+          ${event.code}
+          <small>event.code</small>
+        </div>
+  `;
 }
